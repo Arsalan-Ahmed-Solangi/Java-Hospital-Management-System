@@ -1,0 +1,109 @@
+/*
+SQLyog Ultimate v12.5.0 (64 bit)
+MySQL - 10.4.22-MariaDB : Database - java_hospital
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`java_hospital` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+USE `java_hospital`;
+
+/*Table structure for table `admin` */
+
+DROP TABLE IF EXISTS `admin`;
+
+CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(50) DEFAULT NULL,
+  `pass` varchar(50) DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  `updated_at` date DEFAULT NULL,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `admin` */
+
+insert  into `admin`(`admin_id`,`email`,`pass`,`created_at`,`updated_at`) values 
+(1,'ahmedsolangi347@gmail.com','1234567','2022-01-15','2022-01-15'),
+(2,'admin@gmail.com','12345678','2022-01-16','2022-01-16'),
+(3,'shabaz@gmail.com','12345678','2022-01-16','2022-01-16'),
+(4,'ayesha@gmail.com','123456','2022-01-16','2022-01-16');
+
+/*Table structure for table `appointments` */
+
+DROP TABLE IF EXISTS `appointments`;
+
+CREATE TABLE `appointments` (
+  `appoinment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `doctor` varchar(50) DEFAULT NULL,
+  `patient` varchar(50) DEFAULT NULL,
+  `appointment_date` varchar(20) DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  PRIMARY KEY (`appoinment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `appointments` */
+
+insert  into `appointments`(`appoinment_id`,`doctor`,`patient`,`appointment_date`,`created_at`) values 
+(1,'Shabaz Pathan','Arsalan Ahmed','2015-10-1','2022-01-16'),
+(2,'Ayesha','Shabaz Pathan','2022-10-1','2022-01-16');
+
+/*Table structure for table `doctors` */
+
+DROP TABLE IF EXISTS `doctors`;
+
+CREATE TABLE `doctors` (
+  `doctor_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `department` varchar(50) DEFAULT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `date_of_birth` varchar(50) DEFAULT NULL,
+  `phone_no` varchar(20) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  PRIMARY KEY (`doctor_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `doctors` */
+
+insert  into `doctors`(`doctor_id`,`name`,`department`,`title`,`email`,`date_of_birth`,`phone_no`,`address`,`created_at`) values 
+(1,'Shabaz Pathan','Radiology','Mr','shabaz@gmail.com','2021-10-16','03043059147','This is the home address','2022-01-16'),
+(2,'Ayesha','Pathology','MS','ayesha@gmail.com','2021-10-4','03043059147','This is the home address','2022-01-16'),
+(3,'Kamran','Radiology','Mr','kamran@gmail.com','2021-10-10','030430591478','This is the home address','2022-01-16');
+
+/*Table structure for table `patients` */
+
+DROP TABLE IF EXISTS `patients`;
+
+CREATE TABLE `patients` (
+  `patient_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `phone_no` varchar(20) DEFAULT NULL,
+  `date_of_birth` varchar(20) DEFAULT NULL,
+  `address` text DEFAULT NULL,
+  `created_at` date DEFAULT NULL,
+  PRIMARY KEY (`patient_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `patients` */
+
+insert  into `patients`(`patient_id`,`name`,`email`,`phone_no`,`date_of_birth`,`address`,`created_at`) values 
+(1,'Arsalan Ahmed','ahmed@gmail.com','03043059147','2021-15-10','This is the home address','2022-01-11'),
+(2,'Arsalan Ahmed','ahmed@gmail.com','03043059147','2021-10-10','This is the home address','2022-01-16'),
+(3,'Shabaz Pathan','shabaz@gmail.com','03043059147','2021-5-10','This is the address','2022-01-16'),
+(4,'Aisha','aisha@gmail.com','0301234589','2010-10-10','This is the hoime address','2022-01-16');
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
